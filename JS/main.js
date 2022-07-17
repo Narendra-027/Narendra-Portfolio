@@ -6,31 +6,7 @@ function scrollHeader(){
 }
 window.addEventListener('scroll', scrollHeader)
 
-/*=============== SERVICES MODAL ===============*/
-const modalViews = document.querySelectorAll('.services__modal'),
-      modalBtns = document.querySelectorAll('.services__button'),         
-      modalClose = document.querySelectorAll('.services__modal-close')        
-
-let modal = function(modalClick){
-    modalViews[modalClick].classList.add('active-modal')
-}
-
-modalBtns.forEach((mb, i) =>{
-    mb.addEventListener('click', () =>{
-        modal(i)
-    })
-})
-
-modalClose.forEach((mc) =>{
-    mc.addEventListener('click', () =>{
-        modalViews.forEach((mv) =>{
-            mv.classList.remove('active-modal')
-        })
-    })
-})
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
-/* https://youtu.be/oy8dSsK57Ps?t=4601
-   https://youtu.be/oy8dSsK57Ps?t=4543 */
 
 let mixerPortfolio = mixitup('.work__container', {
     selectors: {
@@ -51,26 +27,6 @@ function activeWork(){
 
 linkWork.forEach(l => l.addEventListener('click', activeWork))
 
-/*=============== SWIPER TESTIMONIAL ===============*/
-let swiperTestimonial = new Swiper(".testimonial__container", {
-    spaceBetween: 24,
-    loop: true,
-    grabCursor: true,
-
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        576: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 48,
-        }
-    }
-})
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
@@ -134,20 +90,6 @@ const sr = ScrollReveal({
 })
 
 // Send Mail
-
-// function sendEmail() {
-//    var params = {
-//     from_name : Document.getElementById("from_name").value,
-//     from_email : Document.getElementById("from_email").value,
-//     message : Document.getElementById("message").value,
-//     form : getElementById('contact_form')
-//    }
-//    emailjs.send("service_a0hcsaq", "template_1jwksmp", params).then()(function(res){
-//     alert("Success! " + res.status);
-//    });
-//    form.reset();
-// };
-
 const btn = document.getElementById('button');
 var Form = document.getElementById('contact_form');
 
@@ -157,7 +99,7 @@ document.getElementById('contact_form')
 
    btn.value = 'Sending...';
 
-   const serviceID = 'default_service';
+   const serviceID = 'service_a0hcsaq';//'default_service';
    const templateID = 'template_1jwksmp';
 
    emailjs.sendForm(serviceID, templateID, this)
